@@ -7,18 +7,18 @@
 
 # GIT COMMANDS
 
-1. git checkout develop (navigate between branches)
-2. git pull origin develop (update the local repository)
-3. git fetch (to download contents from a remote repository)
-4. git status (provide a status of the files)
-5. git checkout -b "##+name" (create a new branch)
-6. Do modifications
-7. git add . (Adds a change in the working directory to the staging area)
+1. **git checkout develop** (navigate between branches)
+2. **git pull origin develop** (update the local repository)
+3. **git fetch** (to download contents from a remote repository)
+4. **git status** (provide a status of the files)
+5. **git checkout -b "##+name"** (create a new branch)
+6. **Do modifications**
+7. **git add .** (Adds a change in the working directory to the staging area)
     *this command do not affect the remote repository*
-8. git commit -m "Update Message" (Save all staged changes, along with a brief descrp)
+8. **git commit -m "Update Message"** (Save all staged changes, along with a brief descrp)
     *a commit could be like a snapshot of your project*
-9. git push (Upload the new version to the remote repository)
-10. Then create pull Request (in GitHub)
+9. **git push** (Upload the new version to the remote repository)
+10. **Then create pull Request** (in GitHub)
 
 ***
 
