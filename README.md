@@ -7,15 +7,18 @@
 
 # GIT COMMANDS
 
-1. git checkout develop
-2. git pull origin develop
-3. git fetch
-4. git checkout -b "##+name"
-5. Do modifications
-6. git add .
-7. git commit -m "Mensaje del cmabio que se hizo"
-8. git push
-9. Then create pull Request
+1. git checkout develop (navigate between branches)
+2. git pull origin develop (update the local repository)
+3. git fetch (to download contents from a remote repository)
+4. git status (provide a status of the files)
+5. git checkout -b "##+name" (create a new branch)
+6. Do modifications
+7. git add . (Adds a change in the working directory to the staging area)
+    *this command do not affect the remote repository*
+8. git commit -m "Update Message" (Save all staged changes, along with a brief descrp)
+    *a commit could be like a snapshot of your project*
+9. git push (Upload the new version to the remote repository)
+10. Then create pull Request (in GitHub)
 
 ***
 
