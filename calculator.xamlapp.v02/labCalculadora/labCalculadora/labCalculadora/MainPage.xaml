@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="labCalculadora.MainPage">
+
+
+    <!--ContentPage.Resources es como un CSS3 en web pero para poder simplificar la asignacion de 
+        propiedades a los elementos del Layout-->
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="numeros" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#2e2e2e" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="36" />
+                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="BorderRadius" Value="30" />
+            </Style>
+
+            <Style x:Key="claros" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#808080" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="BorderRadius" Value="30" />
+            </Style>
+
+            <Style x:Key="naranjas"  TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#EE7600" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="BorderRadius" Value="30" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!---Grid Code-->
+
+    <Grid Padding="5,0"
+          RowSpacing="5"
+          ColumnSpacing="5"
+          BackgroundColor="Black">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!---Deberia llamarse resultText-->
+        <Label x:Name="showResult"
+               Text="0"
+               LineBreakMode="NoWrap"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="End"
+               TextColor="White"
+               FontSize="48"
+               FontAttributes="Bold"
+               Grid.ColumnSpan="4"
+               BackgroundColor="Black"/>
+        
+        <!--Botones de los Numeros-->
+
+        <Button Text="1" Grid.Row="4" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="2" Grid.Row="4" Grid.Column="1" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="3" Grid.Row="4" Grid.Column="2" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="4"  Grid.Row="3" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="5" Grid.Row="3" Grid.Column="1" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="6" Grid.Row="3" Grid.Column="2" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="7"  Grid.Row="2" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="8"  Grid.Row="2" Grid.Column="1" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="9" Grid.Row="2" Grid.Column="2" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="0" Grid.ColumnSpan="2" Grid.Row="5" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+        <Button Text="." Grid.Row="5" Grid.Column="2" Clicked="PressNumbero"
+                Style="{StaticResource numeros}" />
+
+
+        <!-- Math buttons -->
+
+        <Button Text="÷" Grid.Row="1" Grid.Column="3" Clicked="CalcOperadores"
+                Style="{StaticResource naranjas}" />
+
+        <Button Text="×" Grid.Row="2" Grid.Column="3" Clicked="CalcOperadores"
+                Style="{StaticResource naranjas}" />
+
+        <Button Text="-" Grid.Row="3" Grid.Column="3" Clicked="CalcOperadores"
+                Style="{StaticResource naranjas}" />
+
+        <Button Text="+" Grid.Row="4"  Grid.Column="3" Clicked="CalcOperadores"
+                Style="{StaticResource naranjas}" />
+
+        <Button Text="=" Grid.Row="5" Grid.Column="3" Clicked="CalcResultado"
+                Style="{StaticResource naranjas}" />
+        
+        <!--Other buttons-->
+
+        <Button Text="ac" Grid.Row="1" Clicked="BorrarNumero"
+                Style="{StaticResource claros}" />
+
+        <Button Text="+/-" Grid.Row="1" Grid.Column="1"
+                Style="{StaticResource claros}" />
+
+        <Button Text="%" Grid.Row="1" Grid.Column="2" Clicked="CalcPorcentaje"
+                Style="{StaticResource claros}" />
+        
+    </Grid>
+
+</ContentPage>

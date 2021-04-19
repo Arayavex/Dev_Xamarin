@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AmiiboApp"
+             xmlns:autocomplete1="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms" 
+             xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+             x:Class="AmiiboApp.MainPage"
+             
+             Title="AmiiboApp">
+
+    <StackLayout>
+
+        <!---
+        Se definen los siguientes elementos:
+            - SearchBar: Sirve para realizar busquedas por medio del ingreso de caracteres por parte del usuario desde la UI
+            - ListView: Es una vista que muestra informacion en forma de Lista
+            - x:Array Type="{x:Type x:String}" : sirve para definir un Array de elementos de tipo String 
+        -->
+        
+        
+        <!---<SearchBar Placeholder="Busca un Amiibo"
+                   x:Name="search"
+                   SearchCommand="{Binding SearchCommand}"
+                   SearchCommandParameter="{Binding Text, Source={x:Reference search}}"></SearchBar>-->
+
+
+        <autocomplete1:SfAutoComplete HeightRequest="40"
+                                      DataSource="{Binding AmiiboCharacter}"
+                                      DisplayMemberPath="name"
+                                      Watermark="Busca un Amiibo">
+            
+            <autocomplete1:SfAutoComplete.Behaviors>
+
+                <behaviorsPack:EventToCommandBehavior EventName="SelectionChanged"
+                                                      Command="{Binding SearchCommand}"
+                                                      EventArgsPropertyPath="Value"/>
+            </autocomplete1:SfAutoComplete.Behaviors>
+
+
+        </autocomplete1:SfAutoComplete>
+            
+        <ListView
+            ItemsSource="{Binding AmiibosModel}"
+            RowHeight="250">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="5"
+                               Margin="5"
+                               BackgroundColor="White">
+                            <StackLayout>
+                                <Image Source="{Binding image}"
+                                       HeightRequest="100"></Image>
+                                <Label Text="{Binding name}"
+                                       FontSize="Large"/>
+                                <Label Text="{Binding amiiboSeries, StringFormat='Amiibo Series: {0}'}"/>
+                                <Label Text="{Binding gameSeries, StringFormat='Game Series: {0}'}"/>
+                                <Label Text="{Binding type, StringFormat='Type: {0}'}"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!---
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Mario</x:String>
+                    <x:String>Mario 2</x:String>
+                    <x:String>Mario 3</x:String>
+                    <x:String>Mario 4</x:String>
+                </x:Array>
+            </ListView.ItemsSource>-->
+        </ListView>
+            
+    </StackLayout>
+
+</ContentPage>

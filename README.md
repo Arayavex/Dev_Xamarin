@@ -2,12 +2,6 @@
 ![MarkDown logo](https://img.icons8.com/nolan/2x/markdown.png)
 
 
-# Mock-up - Front-End View
-
-![Calculadora] (Calculadora.png)
-
-![Calculadora] (CalculadoraSalarial.png)
-
 # REPOSITORY FOR MOBILE APPS WITH XAMARIN
 #### created by: Alexander Araya Vega
 ***

@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:labCalcSalarial.Converter"
+             x:Class="labCalcSalarial.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DecimalToMoney x:Key="toMoney"></converters:DecimalToMoney>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ScrollView>
+        <StackLayout Spacing="1">
+
+            <Frame BackgroundColor="#00AAE4" Padding="28" CornerRadius="0">
+                <Label Text="Calculadora Salarial"
+                       TextColor="White" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold" 
+                       FontFamily = "Arial" 
+                       FontSize="32"/>
+            </Frame>
+
+
+            <Label Text="       Ingrese sus Datos en Colones" TextColor="White" BackgroundColor="DarkGray"
+               FontSize="16" HeightRequest="50" XAlign = "Start" YAlign ="Center"/>
+
+            <!---Primer Label: Salario Bruto y Comisiones-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Salario Bruto y Comisiones"
+                           TextColor="Black"
+                           XAlign ="Start" YAlign ="Center"
+                           WidthRequest="200" />
+
+                    <Entry
+                        WidthRequest="150" IsPassword="False" 
+                        TextColor="Black" FontSize="16"
+                        Text="{Binding calcsModel.Salary}"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--- Segundo Label: Otros ingresos salariales ocasionales-->
+
+            <Frame>
+                
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Otros ingresos salariales ocasionales" 
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           TextColor="Black"/>
+
+                    <Entry WidthRequest="150" 
+                           IsPassword="False"
+                           TextColor="Black"
+                           FontSize="16"
+                           Text = "{Binding calcsModel.OtherSalary}" />
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--- Tercer Label: Reembolso de gastos no salariales ni gravables-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Reembolso de gastos no salariales ni gravables"
+                           XAlign ="Start" 
+                           YAlign ="Center" 
+                           WidthRequest="200" 
+                           TextColor="Black"/>
+
+                    <Entry
+                        WidthRequest="150" 
+                        IsPassword="False"
+                        TextColor="Black" 
+                        FontSize="16" 
+                        Text = "{Binding calcsModel.Refund}"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!---Ingresar el Porcentaje (Numero entero) de rebajo de la asociacion-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Asociacion Solidarista (Numero Entero): " 
+                           XAlign ="Start" 
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           TextColor="Black" />
+
+                   <Entry
+                        WidthRequest="150" 
+                        IsPassword="False" 
+                        Placeholder="0"
+                        PlaceholderColor="LightGray"
+                        Text = "{Binding calcsModel.Aso}" 
+                        TextColor="Black" FontSize="16" />
+                    
+                </StackLayout>
+
+            </Frame>
+
+            <!--- Cuarto Label: Total de Ingresos Laborales-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Total Ingresos Laborales" 
+                           XAlign ="Start" 
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           FontAttributes="Bold" 
+                           TextColor="Black" />
+
+                    <Label XAlign ="Center" 
+                           YAlign ="Center" 
+                           WidthRequest="200"
+                           FontAttributes="Bold" 
+                           TextColor="Black"
+                           Text="{Binding calcsModel.TotalSalary, Converter={StaticResource toMoney}}" />
+
+                </StackLayout>
+
+            </Frame>
+
+
+            <!---Boton de Calcular-->
+
+            <StackLayout HeightRequest="50" BackgroundColor="White" Padding="5">
+
+                <Button Text="Calcular" 
+                        TextColor="White" 
+                        BackgroundColor="DarkOrange"
+                        VerticalOptions="End" 
+                        HorizontalOptions="End" 
+                        HeightRequest="40"
+                        Command="{Binding OperationCommand}"/>
+            </StackLayout>
+
+
+
+            <!--SEGUNDO LABEL DE TITULO-->
+            <Label Text="  Deducciones" 
+                   TextColor="White"
+                   BackgroundColor="DarkGray"
+                   FontSize="18"
+                   HeightRequest="50"
+                   XAlign = "Start" 
+                   YAlign ="Center"/>
+            
+
+            <!--- Quinto Label: CSS -->
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="CCSS"
+                           FontSize="16"
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           TextColor="Black"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--- Sexto Label: Enfermedad y Maternidad-->
+
+            <Frame>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Enfermedad y Maternidad %5.5"
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="320" 
+                           FontSize="16" 
+                           TextColor="Black" />
+
+                    <Label XAlign ="Center"
+                           YAlign ="Center"
+                           WidthRequest="200"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding calcsModel.EnfermedadMaternidad, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+            </Frame>
+
+            <!--- Septimo Label: Invalidez y Muerte-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="Invalidez y Muerte %3.84: "
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16" 
+                           TextColor="Black" />
+
+
+                    <Label XAlign ="Center"
+                           YAlign ="Center"
+                           WidthRequest="200"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding calcsModel.InvalidezMuerte, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--- Octavo Label: Aporte Banco Popular-->
+
+            <Frame>
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="Aporte Trabajador Banco Popular %1: " 
+                           XAlign ="Center" 
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16"
+                           TextColor="Black" />
+
+                    <Label  XAlign ="Center"
+                            YAlign ="Center"
+                            WidthRequest="200"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            Text="{Binding calcsModel.BancoPopular, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+            </Frame>
+
+            <!--- Noveno Label: Asociacion Solidarista-->
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Asociacion Solidarista %5: " 
+                           XAlign ="Center" 
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16"
+                           TextColor="Black" />
+
+                    <Label TextColor="Black"
+                           FontAttributes="Bold"
+                           XAlign ="Center" 
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           Text="{Binding calcsModel.Association, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+            </Frame>
+            
+            <!---Decimo: Plan de pensiones complementarias-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Plan de Pensiones Complementarias" 
+                           TextColor="Black"
+                           XAlign ="Start" 
+                           YAlign ="Center"
+                           WidthRequest="200" />
+
+                    <Entry
+                        WidthRequest="150" 
+                        IsPassword="False" 
+                        Placeholder="₡0" 
+                        PlaceholderColor="LightGray"
+                        Text = "" 
+                        TextColor="Black" 
+                        FontSize="16" />
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--Undecimo label: Salario Gravable-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="Salario Gravable (Bruto)"
+                           XAlign ="Start" 
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16" 
+                           TextColor="Black" />
+
+                    <Label XAlign ="Center"
+                           YAlign ="Center"
+                           WidthRequest="150"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding calcsModel.SalarioGravable, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+
+            </Frame>
+            
+            <!---Duodecimo label: Impuesto sobre la renta-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="Impuestos sobre la Renta empleados"
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16"
+                           TextColor="Black" />
+
+
+                    <Label XAlign ="Center"
+                           YAlign ="Center"
+                           WidthRequest="150"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding calcsModel.ImpuestoRenta, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+
+            </Frame>
+            
+            <!---13. Label: Total Deducciones-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="Total Deducciones"
+                           XAlign ="Start" 
+                           YAlign ="Center" 
+                           WidthRequest="320"
+                           FontSize="16" 
+                           TextColor="Black" />
+
+
+                    <Label XAlign ="Center"
+                           YAlign ="Center"
+                           WidthRequest="150"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding calcsModel.TotalDeducciones, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+            </Frame>
+            
+            <!--14. Label: Ingresos Netos-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="Ingresos Netos"
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16" 
+                           TextColor="Black" />
+
+
+                    <Label XAlign ="Center" 
+                           YAlign ="Center"
+                           WidthRequest="150"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding calcsModel.IngresosNetos, Converter={StaticResource toMoney}}"/>
+
+                </StackLayout>
+
+            </Frame>
+            
+            <!---Label Adicional-->
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="2" Margin="2">
+
+                    <Label Text="*Diligencie los datos obligatorios" 
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="320"
+                           FontSize="16" 
+                           TextColor="Red" 
+                           FontAttributes="Italic" />
+
+                </StackLayout>
+
+            </Frame>
+
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
