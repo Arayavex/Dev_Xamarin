@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFinance.View.MainPage">
+    <ContentPage.Content>
+
+
+        <Label> </Label>
+        <!--Este código es del toolbar de abajo, falta agregar los iconos-->
+        <!--
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1"
+                  VerticalOptions="End"
+                  BackgroundColor="#5A4874">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                        Text="Inicio" />
+            <Button Grid.Column="1"
+                        Text="Planear" />
+            <Button Grid.Column="2"
+                        Text="Agregar" />
+            <Button Grid.Column="3"
+                        Text="Reportes" />
+            <Button Grid.Column="4"
+                        Text="Ajustes" />
+        </Grid>
+    </Grid>-->
+
+
+    </ContentPage.Content>
+</ContentPage>

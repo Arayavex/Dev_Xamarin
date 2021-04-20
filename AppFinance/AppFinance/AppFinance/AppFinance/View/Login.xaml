@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFinance.View.Login">
+    <ContentPage.Content>
+
+        <Grid>
+            
+            <Image Source="Q4gqWhG.png" Aspect="AspectFill"/>
+
+            <BoxView Color="Black" Opacity="0.8"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="axLiWBU.png" WidthRequest="100" HeightRequest="100" Margin="0,50,0,30" />
+
+                <StackLayout Grid.Row="1" Padding="30,20">
+                    
+                    <Entry Placeholder="Usuario" 
+                           PlaceholderColor="White"
+                           Text="{Binding User}"/>
+                    
+                    <Entry Placeholder="Contraseña" 
+                           PlaceholderColor="White"
+                           Text="{Binding Pass}"/>
+
+                    <Button Text="Iniciar Sesion"
+                        Background="white" 
+                        CornerRadius="20" TextColor="Black"
+                        Command="{Binding validarUser}"/>
+
+                    <Button Text="Nuevo Usuario"
+                        Background="white" 
+                        CornerRadius="20" TextColor="Black"
+                        Command="{Binding irInicio}"/>
+
+
+                </StackLayout>
+
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

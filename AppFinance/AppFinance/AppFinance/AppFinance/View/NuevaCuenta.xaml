@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFinance.View.NuevaCuenta">
+    <ContentPage.Content>
+
+
+        <ScrollView>
+            <StackLayout>
+
+                <!--Titulo de cliente y logo-->
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source= "https://i.imgur.com/axLiWBU.png"
+                       WidthRequest="111"
+                       HeightRequest="111"
+                       Margin="40,20,40,20"/>
+                    <Label Text="¡Hola! Nombre"
+                       VerticalOptions="Center"
+                       FontSize="Title"
+                       />
+                </StackLayout>
+
+                <!--datos titulo-->
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Datos de cuenta"
+                       Margin="40,0,0,40"
+                       FontSize="32"
+                       FontAttributes="Bold"/>
+                </StackLayout>
+
+                <!-- formulario-->
+
+                <StackLayout Orientation="Vertical"
+                             Margin="20">
+
+                    <StackLayout Orientation="Horizontal"
+                                 >
+                        <Label Text="Nombre de la cuenta"
+                               FontSize="Medium"
+                               FontAttributes="Bold"
+                               WidthRequest="250"/>
+                        <Entry Placeholder="Escriba el nombre de su cuenta..."
+                               HorizontalOptions="EndAndExpand"
+                               Text="{Binding Nombre}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0,40,0,0">
+                        <Label Text="Balance"
+                               FontSize="Medium"
+                               FontAttributes="Bold"
+                               WidthRequest="200"/>
+                        <Entry Placeholder="Escriba el balance de su cuenta..."
+                               Text="{Binding Balance}"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <!--grid de botones-->
+
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="EndAndExpand"
+                             Padding="0" 
+                             Spacing="0" 
+                             Margin="30,0,30,50">
+
+                    <Button Text="Cancelar"
+                            BackgroundColor="#62B5EF"
+                            BorderColor="#5095C6"
+                            BorderWidth="2"
+                            CornerRadius="10"
+                            HorizontalOptions="StartAndExpand"
+                            HeightRequest="60"
+                            WidthRequest="100"
+                            Command="{Binding irHomepage}"/>
+
+                    <Button Text="Agregar"
+                            BackgroundColor="#62B5EF"
+                            HeightRequest="60"
+                            WidthRequest="100"
+                            BorderColor="#5095C6"
+                            BorderWidth="2"
+                            CornerRadius="10"
+                            HorizontalOptions="EndAndExpand"
+                            Command="{Binding agregarCuenta}"/>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

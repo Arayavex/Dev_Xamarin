@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFinance.View.Gastos">
+    <ContentPage.Content>
+
+
+        <ScrollView>
+            <StackLayout>
+
+                <!--Titulo de cliente y logo-->
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source= "https://i.imgur.com/axLiWBU.png"
+                       WidthRequest="111"
+                       HeightRequest="111"
+                       Margin="40,20,40,20"/>
+                    <Label Text="¡Hola! Nombre"
+                       VerticalOptions="Center"
+                       FontSize="Title"
+                       />
+                </StackLayout>
+
+
+                <!--Ingresa el dinero que gasta, el tipo de gasto y botones para aceptar o cancelar-->
+
+                <StackLayout>
+                    <Label Text="Gasto"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           Margin="20"/>
+                    <Entry x:Name="gastoTXT"
+                           Placeholder="Ingresa tus gastos"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="FillAndExpand"
+                           HeightRequest="100"
+                           Margin="20"/>
+                    <Label Text="Selecciona el tipo"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           Margin="20"/>
+                    <Picker  x:Name="tipoGastoPicker"
+                             Margin="20"/>
+                    <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand">
+                        <Grid Grid.Row="1"
+                          ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Button x:Name="cancelarBTN"
+                                    Text="Cancelar"
+                                    BackgroundColor="#46CCC9"
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    Padding="10"
+                                    Margin="50"
+                                    BorderWidth="2"
+                                    BorderRadius="10"/>
+                            <Button x:Name="aceptarBTN"
+                                    Text="Aceptar"
+                                    BackgroundColor="#46CCC9"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    Padding="10"
+                                    Margin="50"
+                                    WidthRequest="50"
+                                    BorderWidth="2"
+                                    BorderRadius="10"/>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <!--grid de botones-->
+
+                <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand" 
+                             Padding="0"
+                             Spacing="0" 
+                             Margin="0">
+                    <Grid Grid.Row="1"
+                          VerticalOptions="End"
+                          BackgroundColor="#5A4874"
+                          ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Button Text="Inicio"
+                                TextColor="#FFF"
+                                BorderColor="#FFF"
+                                BorderWidth="1"
+                                BackgroundColor="#605399"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Padding="0"
+                                Margin="0"
+                                Command="{Binding irInicio}"/>
+
+                        <Button Text="Planear"
+                                TextColor="#FFF"
+                                BorderColor="#FFF"
+                                BorderWidth="1"
+                                BackgroundColor="#605399"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Padding="0"
+                                Margin="0"
+                                Command="{Binding irPlanear}"/>
+
+                        <Button Text="Agregar"
+                                TextColor="#FFF"
+                                BorderColor="#FFF"
+                                BorderWidth="1"
+                                BackgroundColor="#605399"
+                                Grid.Column="2"
+                                Grid.Row="0"
+                                Padding="0"
+                                Margin="0"
+                                Command="{Binding irAgregar}"/>
+
+                        <Button Text="Reportes"
+                                TextColor="#FFF"
+                                BorderColor="#FFF"
+                                BorderWidth="1"
+                                BackgroundColor="#605399"
+                                Grid.Column="3"
+                                Grid.Row="0"
+                                Padding="0"
+                                Margin="0"
+                                Command="{Binding irReportes}"/>
+
+                        <Button Text="Ajustes"
+                                TextColor="#FFF"
+                                BorderColor="#FFF"
+                                BorderWidth="1"
+                                BackgroundColor="#605399"
+                                Grid.Column="4"
+                                Grid.Row="0"
+                                Padding="0"
+                                Margin="0"
+                                Command="{Binding irAjustes}"/>
+                    </Grid>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+
+
+    </ContentPage.Content>
+</ContentPage>
