@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAmigos.v2.View.AmigoView">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Frame BackgroundColor="Black" Padding="28" CornerRadius="0">
+                <Label Text="Data: Nuevo Amigo"
+                       TextColor="White" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold" 
+                       FontFamily = "Arial" 
+                       FontSize="32"/>
+            </Frame>
+
+            <Frame>
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <Label Text="Nombre Completo:" 
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           TextColor="Black"
+                           FontAttributes="Bold"/>
+
+                        <Entry WidthRequest="220" 
+                           IsPassword="False"
+                           TextColor="Black"
+                           FontSize="16"
+                           Placeholder="ingrese el nombre..."
+                           Text="{Binding nuevo.Nombre}" />
+
+                    </StackLayout>
+
+                </Frame>
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Telefono/Celular:" 
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           TextColor="Black"
+                           FontAttributes="Bold"/>
+
+                    <Entry WidthRequest="220" 
+                           IsPassword="False"
+                           TextColor="Black"
+                           FontSize="16"
+                           Placeholder="ingrese el numero..."
+                           Text="{Binding nuevo.Telefono}" />
+
+                </StackLayout>
+
+            </Frame>
+
+            <Frame>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Email:" 
+                           XAlign ="Start"
+                           YAlign ="Center"
+                           WidthRequest="200" 
+                           TextColor="Black"
+                           FontAttributes="Bold"/>
+
+                    <Entry WidthRequest="300" 
+                           IsPassword="False"
+                           TextColor="Black"
+                           FontSize="16"
+                           Placeholder="ingrese el email..."
+                          Text="{Binding nuevo.Email}" />
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--- Buttons -->
+
+            <StackLayout HeightRequest="50" BackgroundColor="White" Padding="5">
+
+                <Button Text="Confirmar Amigo" 
+                        TextColor="White" 
+                        BackgroundColor="DarkOrange"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" 
+                        HeightRequest="40"
+                        Command="{Binding SaveCommand}"/>
+            </StackLayout>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
